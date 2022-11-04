@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playerMovement : MonoBehaviour {
         public float speed = 6f; /* player movement speed */
-        public AudioSource moveSFX; /* walking sfx */
+        // public AudioSource moveSFX; /* walking sfx */
         private Vector3 change; /* player movement direction */
         private Rigidbody2D rb2d;
 
@@ -30,9 +30,9 @@ public class playerMovement : MonoBehaviour {
         {
                 if (change != Vector3.zero) {   /* if player is moving, activate the animation */
                         rb2d.MovePosition(transform.position + change * speed * Time.deltaTime);
-                        if (moveSFX.isPlaying == false){
-                                moveSFX.Play();
-                        }
+                        // if (moveSFX.isPlaying == false){
+                                // moveSFX.Play();
+                        // }
                 }
         }
 }
