@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape)) {
+        if (Input.GetButtonDown("Pause")) {
             pauseMenu.SetActive(false);
             Time.timeScale = 1f;
         }
@@ -24,6 +24,7 @@ public class PauseMenu : MonoBehaviour
 
     public void turnOnPauseMenu()
     {
+        Time.timeScale = 0f;
         pauseMenu.SetActive(true);
     }
 

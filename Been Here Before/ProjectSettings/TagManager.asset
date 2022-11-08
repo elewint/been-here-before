@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3524225805
+    locked: 0
   - name: Fog
     uniqueID: 1206406547
     locked: 0
