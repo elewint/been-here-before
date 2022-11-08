@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    public bool showOptions;
-    public bool showCredits;
     public GameObject optionsMenu;
     public GameObject creditsMenu;
+    private bool showOptions;
+    private bool showCredits;
 
     void Start()
     {

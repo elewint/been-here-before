@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour {
         public float speed = 6f;        /* player movement speed */
         public float jumpSpeed = 8f;    /* player jump speed */
         private Rigidbody2D player;     /* player character */
@@ -31,7 +31,7 @@ public class playerMovement : MonoBehaviour {
                 }
 
                 /* Make player's jump on 'space' */
-                if (Input.GetButtonDown("Jump")) {
+                if (Input.GetButtonDown("Jump") && player.velocity.y == 0) {
                         player.velocity = new Vector2(player.velocity.x, jumpSpeed);
                 }
 

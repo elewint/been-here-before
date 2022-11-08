@@ -8,6 +8,9 @@ public class SetVolume : MonoBehaviour
 
  public void SetLevel (float slideVal)
  {
-    mix.SetFloat("MusicVolume", Mathf.Log10 (slideVal) * 20);
+    if (mix != null)
+    {
+        mix.SetFloat("MusicVolume", Mathf.Log10(slideVal) * 20);
+    }
  }
 }

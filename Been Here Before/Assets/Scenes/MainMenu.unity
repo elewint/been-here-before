@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c8379be73ade94ef09e6dcf38f431846, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c7630b8aa74e21944822a6764da88c11, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -502,7 +502,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c8379be73ade94ef09e6dcf38f431846, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c7630b8aa74e21944822a6764da88c11, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1092,11 +1092,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 631350883}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a5cf073ef4744e479f57661ce87e555, type: 3}
+  m_Script: {fileID: 11500000, guid: f89c9a4b7895f7c419a66b7b18973ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showOptions: 0
-  showCredits: 0
   optionsMenu: {fileID: 1639554526}
   creditsMenu: {fileID: 2118154272}
 --- !u!1 &733133853
@@ -2574,8 +2572,8 @@ AudioSource:
   m_GameObject: {fileID: 1666803675}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 0661a8aab848845878b285c952109fd9, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 017df456717384786a895ae35e417373, type: 3}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: ea9e59462cfecdf4cb656cf6a7d095c9, type: 2}
+  m_audioClip: {fileID: 8300000, guid: a872aef8b8c27ca44bc2f52eab468daa, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2856,7 +2854,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c8379be73ade94ef09e6dcf38f431846, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c7630b8aa74e21944822a6764da88c11, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2963,7 +2961,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 0.3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2988,10 +2986,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1865635898}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fab0ff919b2ca401ca81c5a64be0b825, type: 3}
+  m_Script: {fileID: 11500000, guid: 4cb7632ebf888444bba990046f638ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mix: {fileID: 24100000, guid: 0661a8aab848845878b285c952109fd9, type: 2}
+  mix: {fileID: 24100000, guid: ea9e59462cfecdf4cb656cf6a7d095c9, type: 2}
 --- !u!1 &1963722837
 GameObject:
   m_ObjectHideFlags: 0
