@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
                 }
 
                 /* Make player's jump on 'space' */
-                if (Input.GetButtonDown("Jump") && player.velocity.y == 0) {
+                if (Input.GetButtonDown("Jump") && Mathf.Abs(player.velocity.y) < 0.02f) {
                         player.velocity = new Vector2(player.velocity.x, jumpSpeed);
                 }
 

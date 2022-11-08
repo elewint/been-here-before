@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// NOTE: THIS SCRIPT IS NO LONGER USED IN THE GAME!!!
 public class FogFade : MonoBehaviour
 {
     private GameObject player;
