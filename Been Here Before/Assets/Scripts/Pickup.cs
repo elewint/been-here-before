@@ -18,7 +18,7 @@ public class Pickup : MonoBehaviour
         void Update()
         {
 
-                if (Input.GetKeyDown(KeyCode.R)) {  /* Check for key input */
+                if (Input.GetButtonDown("Pickup")) {  /* Check for key input */
 
 
                                 if (itemHolding) {  /* If player is currently holding item, drop the item */
@@ -44,7 +44,7 @@ public class Pickup : MonoBehaviour
 
                                 } else {    /* If player is not currently holding an item, pick the item up */
 
-                                        Collider2D pickUpItem = Physics2D.OverlapCircle(transform.position + Direction, .8f, pickUpMask);   /* pickUpMask will only allow player to get item that can be picked up */
+                                        Collider2D pickUpItem = Physics2D.OverlapCircle(transform.position + Direction, 1.5f, pickUpMask);   /* pickUpMask will only allow player to get item that can be picked up */
 
                                         if (pickUpItem) {   /* If there's an item that can be picked up */
                                                 itemHolding = pickUpItem.gameObject;    /* store game object into itemHolding */
@@ -52,7 +52,7 @@ public class Pickup : MonoBehaviour
                                                 itemHolding.transform.parent = transform;   /* Set the parent of the item to the player so that the item follows the player */
                                         }
 
-                                        if (itemHolding.GetComponent<Rigidbody2D>()) {
+                                        if (itemHolding != null && itemHolding.GetComponent<Rigidbody2D>()) {
                                                 itemHolding.GetComponent<Rigidbody2D>().simulated = false;  /* Check to make sure that the object follows the player */
                                         }
 
