@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 207876928}
   - component: {fileID: 207876927}
   - component: {fileID: 207876926}
+  - component: {fileID: 207876929}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -206,7 +207,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 207876927}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 207876929}
+        m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
+        m_MethodName: TriggerDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &207876927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,63 +258,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207876924}
   m_CullTransparentMesh: 1
---- !u!1001 &385577783
-PrefabInstance:
+--- !u!114 &207876929
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2662216943972839250, guid: 01d916e7d5a7f4b54920cd1976995acc, type: 3}
-      propertyPath: m_Name
-      value: Map
-      objectReference: {fileID: 0}
-    - target: {fileID: 2662216943972839251, guid: 01d916e7d5a7f4b54920cd1976995acc, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2662216943972839251, guid: 01d916e7d5a7f4b54920cd1976995acc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.7898784
-      objectReference: {fileID: 0}
-    - target: {fileID: 2662216943972839251, guid: 01d916e7d5a7f4b54920cd1976995acc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.27167255
-      objectReference: {fileID: 0}
-    - target: {fileID: 2662216943972839251, guid: 01d916e7d5a7f4b54920cd1976995acc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.36910152
-      objectReference: {fileID: 0}
-    - target: {fileID: 2662216943972839251, guid: 01d916e7d5a7f4b54920cd1976995acc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2662216943972839251, guid: 01d916e7d5a7f4b54920cd1976995acc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2662216943972839251, guid: 01d916e7d5a7f4b54920cd1976995acc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2662216943972839251, guid: 01d916e7d5a7f4b54920cd1976995acc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2662216943972839251, guid: 01d916e7d5a7f4b54920cd1976995acc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2662216943972839251, guid: 01d916e7d5a7f4b54920cd1976995acc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2662216943972839251, guid: 01d916e7d5a7f4b54920cd1976995acc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 01d916e7d5a7f4b54920cd1976995acc, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207876924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b48a14a6936fb402eb9c4e14a2b50bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: The Scientist
+    sentences:
+    - I am the Scientist, and I believe that I have an invention that will change
+      the course of our glorious city!
+    - However, I need your help to do so.
+    - I hope I can count on your vote on the proposition to allow my invention to
+      run.
+    - The rest is in your hands.
 --- !u!1 &509687637
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +315,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 25}
-  m_SizeDelta: {x: 670, y: 30}
+  m_SizeDelta: {x: 580, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &509687639
 MonoBehaviour:
@@ -419,8 +396,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 297, y: -30}
-  m_SizeDelta: {x: 126, y: 30}
+  m_AnchoredPosition: {x: 251.5, y: -30}
+  m_SizeDelta: {x: 97, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &567529773
 MonoBehaviour:
@@ -465,7 +442,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 567529774}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1116614890}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &567529774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,7 +529,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -15}
-  m_SizeDelta: {x: 670, y: 50}
+  m_SizeDelta: {x: 580, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &574556207
 MonoBehaviour:
@@ -656,7 +645,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Test Button
+  m_Text: 'Start Conversation
+
+'
 --- !u!222 &589047097
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -694,6 +685,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e1cea3385cb742b1b160efff575eb62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameText: {fileID: 509687639}
+  dialogueText: {fileID: 574556207}
+  animator: {fileID: 2020065832}
 --- !u!4 &1116614891
 Transform:
   m_ObjectHideFlags: 0
@@ -718,7 +712,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2062297559873242162, guid: 7530e1abee0ac46acbb2ca47e26a7679, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2062297559873242162, guid: 7530e1abee0ac46acbb2ca47e26a7679, type: 3}
       propertyPath: m_LocalPosition.x
@@ -861,7 +855,7 @@ RectTransform:
   - {fileID: 2020065828}
   - {fileID: 207876925}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -952,63 +946,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1793843225
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1881929596299213718, guid: e408c17d6f5b04a048dcf2852a117507, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881929596299213719, guid: e408c17d6f5b04a048dcf2852a117507, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881929596299213719, guid: e408c17d6f5b04a048dcf2852a117507, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.27854118
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881929596299213719, guid: e408c17d6f5b04a048dcf2852a117507, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.06472496
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881929596299213719, guid: e408c17d6f5b04a048dcf2852a117507, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.07573798
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881929596299213719, guid: e408c17d6f5b04a048dcf2852a117507, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881929596299213719, guid: e408c17d6f5b04a048dcf2852a117507, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881929596299213719, guid: e408c17d6f5b04a048dcf2852a117507, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881929596299213719, guid: e408c17d6f5b04a048dcf2852a117507, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881929596299213719, guid: e408c17d6f5b04a048dcf2852a117507, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881929596299213719, guid: e408c17d6f5b04a048dcf2852a117507, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881929596299213719, guid: e408c17d6f5b04a048dcf2852a117507, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e408c17d6f5b04a048dcf2852a117507, type: 3}
 --- !u!1 &1834051132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,6 +1038,7 @@ GameObject:
   - component: {fileID: 2020065831}
   - component: {fileID: 2020065830}
   - component: {fileID: 2020065829}
+  - component: {fileID: 2020065832}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -1129,7 +1067,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 80}
-  m_SizeDelta: {x: 720, y: 100}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2020065829
 MonoBehaviour:
@@ -1221,6 +1159,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2020065832
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020065827}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 919933892cd06423997045d6d36ceab3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2140913742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1234,7 +1192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8632142591433871595, guid: 85b2ac0cba80447e7a188f3f1282bcb5, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8632142591433871595, guid: 85b2ac0cba80447e7a188f3f1282bcb5, type: 3}
       propertyPath: m_LocalPosition.x
