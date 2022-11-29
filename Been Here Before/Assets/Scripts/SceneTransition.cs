@@ -7,7 +7,8 @@ public class SceneTransition : MonoBehaviour
 {
 
         public string sceneToLoad;
-        public void onTriggerEnter2D(Collider2D collision)
+
+        private void OnTriggerEnter2D(Collider2D collision)
         {
                 GameObject player = collision.gameObject;
                 if(player.name == "Player") {
