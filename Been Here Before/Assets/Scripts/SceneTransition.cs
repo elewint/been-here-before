@@ -11,7 +11,9 @@ public class SceneTransition : MonoBehaviour
         private void OnTriggerEnter2D(Collider2D collision)
         {
                 GameObject player = collision.gameObject;
-                if(player.name == "Player") {
+                GameObject key = collision.gameObject;
+                if(player.name == "Player" && key.name == "Key") {
+                        Debug.Log("in here");
                         LoadScene();
                 }
         }
