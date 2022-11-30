@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneTransition : MonoBehaviour
+public class NextSceneTransition : MonoBehaviour
 {
 
         public string sceneToLoad;
@@ -11,11 +11,10 @@ public class SceneTransition : MonoBehaviour
         private void OnTriggerEnter2D(Collider2D collision)
         {
                 GameObject player = collision.gameObject;
-                GameObject key = collision.gameObject;
-                if(player.name == "Player" && key.name == "Key") {
-                        Debug.Log("in here");
+                if(player.name == "Key") {
                         LoadScene();
                 }
+
         }
 
         void LoadScene()
