@@ -7,6 +7,9 @@ public class Pickup : MonoBehaviour
  public Transform holdSpot;  /* Location where penguin will be hold */
         public LayerMask pickUpMask;
         public LayerMask slotMask;
+        public GameObject successfulMessage;
+        public GameObject unsuccessfulMessage;
+        public GameObject door;
 
         private GameObject itemHolding;     /* Having private means when we have it pick up, we store it in this variable. When we want to drop it, we can just access this variable again */
 
@@ -29,6 +32,9 @@ public class Pickup : MonoBehaviour
                                         
                                         if (slot) {
                                                 // Successfully put on slot
+                                                successfulMessage.SetActive(true);
+                                                unsuccessfulMessage.SetActive(false);
+                                                door.SetActive(true);
                                                 itemHolding.transform.position = slot.transform.position;
                                                 itemHolding.transform.parent = null;
                                                 itemHolding.GetComponent<SpriteRenderer>().sortingOrder = 99; /* Set sorting order to behind player */
