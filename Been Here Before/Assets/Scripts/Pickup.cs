@@ -51,7 +51,6 @@ public class Pickup : MonoBehaviour
                                         Collider2D pickUpItem = Physics2D.OverlapCircle(transform.position + Direction, 1.5f, pickUpMask);   /* pickUpMask will only allow player to get item that can be picked up */
 
                                         if (pickUpItem) {   /* If there's an item that can be picked up */
-                                                Debug.Log("picked up item");
                                                 itemHolding = pickUpItem.gameObject;    /* store game object into itemHolding */
                                                 itemHolding.transform.position = holdSpot.position;     /* Change the positon of the item to the holding spot position */
                                                 itemHolding.transform.parent = transform;   /* Set the parent of the item to the player so that the item follows the player */
