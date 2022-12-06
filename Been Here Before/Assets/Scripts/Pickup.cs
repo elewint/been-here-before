@@ -28,6 +28,7 @@ public class Pickup : MonoBehaviour
                                         Collider2D slot = Physics2D.OverlapCircle(transform.position + Direction, 1.5f, slotMask);
                                         
                                         if (slot) {
+                                                // Successfully put on slot
                                                 itemHolding.transform.position = slot.transform.position;
                                                 itemHolding.transform.parent = null;
                                                 itemHolding.GetComponent<SpriteRenderer>().sortingOrder = 99; /* Set sorting order to behind player */
