@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1151686413881491876}
   - component: {fileID: 7529699552541220438}
   - component: {fileID: 7733373121442423181}
-  - component: {fileID: 6211994099766174977}
+  - component: {fileID: 5060646325220377766}
   m_Layer: 0
-  m_Name: NextScene
+  m_Name: SceneTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.29, y: 6}
   m_EdgeRadius: 0
---- !u!114 &6211994099766174977
+--- !u!114 &5060646325220377766
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1151686413881491878}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d685b06c18a48f88fe3fe6aa4f42bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d818bf22effd4f26965ee6321737eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: 
