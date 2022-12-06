@@ -11,7 +11,7 @@ public class NextSceneTransition : MonoBehaviour
         private void OnTriggerEnter2D(Collider2D collision)
         {
                 GameObject player = collision.gameObject;
-                if(player.name == "Key") {
+                if(player.name == "Player") {
                         LoadScene();
                 }
 
