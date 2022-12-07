@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintings: []
   slots: []
+  doorsToOpen: []
 --- !u!1 &2425054696574644265
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +902,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9002954006335652992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.289, y: 1.052, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1131,7 +1132,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9002954007654130316}
   - component: {fileID: 9002954007654130319}
-  - component: {fileID: 9002954007654130318}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -1206,19 +1206,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &9002954007654130318
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9002954007654130317}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 4.62, y: 8.564854, z: 49.255424}
-  m_Center: {x: 0, y: 0, z: 14.728838}
 --- !u!1001 &7416617176764453084
 PrefabInstance:
   m_ObjectHideFlags: 0

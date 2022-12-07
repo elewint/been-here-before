@@ -5,21 +5,47 @@ using UnityEngine.SceneManagement;
 
 public class NextSceneTransition : MonoBehaviour
 {
+    public string sceneToLoad;
+    public bool functionalDoor = true;
+    public Sprite doorOpenSprite;
+    public Sprite doorClosedSprite;
 
-        public string sceneToLoad;
+    private bool doorOpen = false;
+    private GameObject door;
+    
+    void Awake()
+    {
+        door = transform.GetChild(0).gameObject;
+    }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject collider = collision.gameObject;
+
+        if (functionalDoor && doorOpen && collider.name == "Player")
         {
-                GameObject player = collision.gameObject;
-                if(player.name == "Player") {
-                        LoadScene();
-                }
-
+            LoadScene();
         }
+    }
 
-        void LoadScene()
-        {
-                SceneManager.LoadScene(sceneToLoad);
-        }
+    private void LoadScene()
+    {
+        SceneManager.LoadScene(sceneToLoad);
+    }
 
+    public void OpenDoor()
+    {
+        doorOpen = true;
+        
+        // Change door's sprite to a different sprite
+        door.GetComponent<SpriteRenderer>().sprite = doorOpenSprite;
+    }
+    
+    public void CloseDoor()
+    {
+        doorOpen = false;
+        
+        // Change door's sprite to a different sprite
+        door.GetComponent<SpriteRenderer>().sprite = doorClosedSprite;
+    }
 }
