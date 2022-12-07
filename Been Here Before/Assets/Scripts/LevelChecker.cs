@@ -11,7 +11,23 @@ public class LevelChecker : MonoBehaviour
     
     void Start()
     {
-        LayerMask paintingMask = LayerMask.GetMask("Pickup"); /* Layer mask for pick up */
+        paintingMask = LayerMask.GetMask("Pickup"); /* Layer mask for pick up */
+    }
+    
+    // TODO: NOTE TO FUTURE ELI! disabling the rigidbody simulation stops
+    // TODO: collision detection :(
+    void Update()
+    {
+        // foreach (GameObject slot in slots) {
+        //         // get 
+                
+        //     Collider2D painting = Physics2D.OverlapCircle(slot.transform.position, 2f, paintingMask);
+            
+        //     if (painting)
+        //     {
+        //         Debug.Log("found painting!");
+        //     }
+        // }
     }
     
     public void CheckLevel()
@@ -21,17 +37,27 @@ public class LevelChecker : MonoBehaviour
         // get all collisions between smth in pickup layer and slot layer
         // if all tags are the same, then level is complete!
         foreach (GameObject slot in slots) {
-            // get all collisions between smth in pickup layer and slot layer
-            Collider2D painting = Physics2D.OverlapCircle(slot.transform.position, 1.5f, paintingMask);
-
-            if (painting) {
-                Debug.Log(painting.gameObject);
-
-                if (painting.gameObject.tag != slot.tag) {
-                    Debug.Log("fail");
-                    return;
-                }
+            // get 
+            
+            Debug.Log(slot.transform.position);
+            Collider2D painting = Physics2D.OverlapCircle(slot.transform.position, 2f, paintingMask);
+            
+            if (painting)
+            {
+                Debug.Log("found painting!");
             }
+
+            // if (painting) {
+            //     Debug.Log("found painting!");
+            //     Debug.Log(painting.gameObject);
+
+            //     if (painting.gameObject.tag != slot.tag) {
+            //         Debug.Log("fail");
+            //         return;
+            //     }
+            // } else {
+            //     return;
+            // }
         }
         // if all tags are the same, then level is complete!
         Debug.Log("Level Complete!");

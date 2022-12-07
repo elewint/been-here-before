@@ -38,13 +38,13 @@ public class Pickup : MonoBehaviour
                                         
                                         if (slot) {
                                                 // Successfully put on slot
-                                                lvlChecker.CheckLevel();
                                                 // successfulMessage.SetActive(true);
                                                 // unsuccessfulMessage.SetActive(false);
                                                 // door.SetActive(true);
                                                 itemHolding.transform.position = slot.transform.position;
                                                 itemHolding.GetComponent<SpriteRenderer>().sortingOrder = 99; /* Set sorting order to behind player */
-
+                                        
+                                                // lvlChecker.CheckLevel();
                                         } else {
                                                 itemHolding.transform.position = transform.position + Direction;     /* Change the positon of the item so that when the item is drop, it dropped right infront of the player */
 
@@ -57,7 +57,7 @@ public class Pickup : MonoBehaviour
                                         itemHolding = null; /* Set to null because item is no longer being held */
 
                                 } else {    /* If player is not currently holding an item, pick the item up */
-                                        Debug.Log("should pick up");
+                                        // Debug.Log("should pick up");
 
                                         Collider2D pickUpItem = Physics2D.OverlapCircle(transform.position + Direction, 1.5f, pickUpMask);   /* pickUpMask will only allow player to get item that can be picked up */
 
