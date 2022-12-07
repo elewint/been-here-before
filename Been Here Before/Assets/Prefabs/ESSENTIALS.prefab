@@ -45,6 +45,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 6983386203033369903}
+--- !u!1 &1868518155661465922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6703368484283514154}
+  - component: {fileID: 4097194309536431563}
+  m_Layer: 0
+  m_Name: LevelChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6703368484283514154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868518155661465922}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7416617176868010859}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4097194309536431563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868518155661465922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496ee4836f2794c8ea6596d78bb7cf92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintings: []
+  slots: []
 --- !u!1 &2425054696574644265
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +545,7 @@ Transform:
   - {fileID: 7416617177028198608}
   - {fileID: 7416617177499980394}
   - {fileID: 7721346634700038775}
+  - {fileID: 6703368484283514154}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1058,12 +1105,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdSpot: {fileID: 9002954006335652995}
-  pickUpMask:
-    serializedVersion: 2
-    m_Bits: 8
-  slotMask:
-    serializedVersion: 2
-    m_Bits: 0
+  successfulMessage: {fileID: 0}
+  unsuccessfulMessage: {fileID: 0}
+  door: {fileID: 0}
 --- !u!114 &7416617178422230149
 MonoBehaviour:
   m_ObjectHideFlags: 0

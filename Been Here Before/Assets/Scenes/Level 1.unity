@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 813472162}
   m_Layer: 6
   m_Name: SLOT
-  m_TagString: Untagged
+  m_TagString: painting1
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -809,6 +809,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4097194309536431563, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+      propertyPath: slots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097194309536431563, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+      propertyPath: slots.Array.data[0]
+      value: 
+      objectReference: {fileID: 813472160}
+    - target: {fileID: 4097194309536431563, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+      propertyPath: paintings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097194309536431563, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+      propertyPath: paintings.Array.data[0]
+      value: 
+      objectReference: {fileID: 1853971655}
     - target: {fileID: 4804493134132345264, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
       propertyPath: m_Size.x
       value: 81
@@ -20753,6 +20769,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[978].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 6703368484283514154, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7416617176868010836, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
       propertyPath: m_Name
       value: ESSENTIALS
@@ -20903,7 +20923,7 @@ GameObject:
   - component: {fileID: 1853971657}
   m_Layer: 3
   m_Name: PAINTING
-  m_TagString: Untagged
+  m_TagString: painting1
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
