@@ -23,12 +23,18 @@ public class LevelChecker : MonoBehaviour
     
     public void CheckLevel()
     {
+        // List will store all the paintings so they can be locked
+        // in place if the level is complete
+        List<Collider2D> paintings = new List<Collider2D>();
+
         foreach (GameObject slot in slots)
         {
             Collider2D painting = Physics2D.OverlapCircle(slot.transform.position, 2f, paintingMask);
             
             if (painting)
             {
+                paintings.Add(painting);
+
                 if (painting.gameObject.tag != slot.tag)
                 {
                     Debug.Log("Incorrect placement");
@@ -40,6 +46,13 @@ public class LevelChecker : MonoBehaviour
                 return;
             }
         }
+        
+        // If all paintings are in the correct slots, lock them in place
+        foreach (Collider2D painting in paintings)
+        {
+            painting.gameObject.layer = LayerMask.NameToLayer("Default");
+        }
+
         LevelComplete();
     }
     
