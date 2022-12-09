@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    public Transform holdSpot;
+    public GameObject holdSpot;
 
     private LayerMask pickUpMask;
     private LayerMask slotMask;
@@ -28,14 +28,13 @@ public class Pickup : MonoBehaviour
     {
         if (Input.GetButtonDown("Pickup"))
         {
-                if (itemHolding)
+                if (itemHolding == null)
                 {
-                    PutDown();
-
+                    PickUp();
                 }
                 else
                 {
-                    PickUp();
+                    PutDown();
                 }
         }
     }
@@ -48,15 +47,23 @@ public class Pickup : MonoBehaviour
         if (pickUpItem)
         {
             itemHolding = pickUpItem.gameObject;
+            
+            Rigidbody2D rb = itemHolding.GetComponent<Rigidbody2D>();
 
-            if (itemHolding && itemHolding.GetComponent<Rigidbody2D>())
+            if (itemHolding && rb)
             {
                 // Stop the body from colliding with other objects
-                itemHolding.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                
+                // Clear the velocity of the item
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0;
+                
+                // Stop weird velocity bug
                 itemHolding.GetComponent<Collider2D>().isTrigger = true;
                 
                 // Set the position of the item to the holdSpot
-                itemHolding.transform.position = holdSpot.position;
+                itemHolding.transform.position = holdSpot.transform.position;
                 itemHolding.transform.parent = transform;
 
                 // Change the sorting order so that the item is on top of the player
@@ -73,8 +80,6 @@ public class Pickup : MonoBehaviour
         if (slot)
         {
             itemHolding.transform.position = slot.transform.position;
-            // Set sorting order to behind player
-            // itemHolding.GetComponent<SpriteRenderer>().sortingOrder = 99;
         
             lvlChecker.CheckLevel();
         }
@@ -82,13 +87,13 @@ public class Pickup : MonoBehaviour
         {
             Physics2D.IgnoreCollision(itemHolding.GetComponent<Collider2D>(), playerCollider, true);
 
+            // Re-enable collider and rigidbody collisions w other objects
             itemHolding.GetComponent<Collider2D>().isTrigger = false;
             itemHolding.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
-            // itemHolding.transform.position = transform.position + Direction;     /* Change the positon of the item so that when the item is drop, it dropped right infront of the player */
-            if (itemHolding.GetComponent<Drop>())
+            if (holdSpot.GetComponent<Drop>())
             {
-                itemHolding.GetComponent<Drop>().beingDropped = true;
+                holdSpot.GetComponent<Drop>().beingDropped = true;
             }
 
         }

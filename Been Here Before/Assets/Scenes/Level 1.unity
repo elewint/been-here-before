@@ -200,11 +200,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10000
+  m_Mass: 8
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 704658bb5d850774c9160f4530679998, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -667,7 +667,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 704658bb5d850774c9160f4530679998, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -20908,6 +20908,18 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[978].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 5594360291839558297, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+      propertyPath: m_Size.x
+      value: 1.2363344
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594360291839558297, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+      propertyPath: m_Size.y
+      value: 2.2145028
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594360291839558297, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.81420374
+      objectReference: {fileID: 0}
     - target: {fileID: 6703368484283514154, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -21055,7 +21067,6 @@ GameObject:
   - component: {fileID: 1853971659}
   - component: {fileID: 1853971658}
   - component: {fileID: 1853971657}
-  - component: {fileID: 1853971660}
   m_Layer: 3
   m_Name: PAINTING
   m_TagString: painting1
@@ -21071,7 +21082,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853971655}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.14, y: 0.82, z: 0}
+  m_LocalPosition: {x: -3.13, y: 0.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21116,11 +21127,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10000
+  m_Mass: 7
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 704658bb5d850774c9160f4530679998, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -21177,16 +21188,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1853971660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853971655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a35f273e1e04f5fb81626a3c9afd30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beingDropped: 0

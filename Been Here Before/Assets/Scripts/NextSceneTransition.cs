@@ -9,13 +9,14 @@ public class NextSceneTransition : MonoBehaviour
     public bool functionalDoor = true;
     public Sprite doorOpenSprite;
     public Sprite doorClosedSprite;
+    public bool doorOpen = false;
 
-    private bool doorOpen = false;
     private GameObject door;
     
     void Awake()
     {
         door = transform.GetChild(0).gameObject;
+        SetDoorSprite();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,16 +37,24 @@ public class NextSceneTransition : MonoBehaviour
     public void OpenDoor()
     {
         doorOpen = true;
-        
-        // Change door's sprite to a different sprite
-        door.GetComponent<SpriteRenderer>().sprite = doorOpenSprite;
+        SetDoorSprite();
     }
     
     public void CloseDoor()
     {
         doorOpen = false;
-        
-        // Change door's sprite to a different sprite
-        door.GetComponent<SpriteRenderer>().sprite = doorClosedSprite;
+        SetDoorSprite();
+    }
+    
+    private void SetDoorSprite()
+    {
+        if (doorOpen)
+        {
+            door.GetComponent<SpriteRenderer>().sprite = doorOpenSprite;
+        }
+        else
+        {
+            door.GetComponent<SpriteRenderer>().sprite = doorClosedSprite;
+        }
     }
 }
