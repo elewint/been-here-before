@@ -281,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5060646325220377766, guid: 0fa06faebec3941cd94a8cc780b7f1ec, type: 3}
       propertyPath: sceneToLoad
-      value: PaintingPuzzle
+      value: Level 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fa06faebec3941cd94a8cc780b7f1ec, type: 3}
@@ -350,7 +350,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!212 &484404279
 SpriteRenderer:
   m_ObjectHideFlags: 0

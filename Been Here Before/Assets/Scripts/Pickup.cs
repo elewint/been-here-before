@@ -80,6 +80,7 @@ public class Pickup : MonoBehaviour
         if (slot)
         {
             itemHolding.transform.position = slot.transform.position;
+            itemHolding.transform.rotation = Quaternion.identity;
         
             lvlChecker.CheckLevel();
         }
