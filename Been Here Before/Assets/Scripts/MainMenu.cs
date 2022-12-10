@@ -5,32 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
     public GameObject optionsMenu;
     public GameObject creditsMenu;
-    private bool showOptions;
-    private bool showCredits;
-
-    void Start()
-    {
-        showOptions = false;
-        showCredits = false;
-    }
-
+    public GameObject playButton;
+    public GameObject quitButton;
+    public GameObject creditsButton;
+    public GameObject optionsButton;
+    
     void Update()
     {
-        if (showOptions) {
-            optionsMenu.SetActive(true);
-        } else {
-            optionsMenu.SetActive(false);
-        }
-
-        if (showCredits) {
-            creditsMenu.SetActive(true);
-        } else {
-            creditsMenu.SetActive(false);
-        }
-
         if (Input.GetKey(KeyCode.Escape)) {
             Application.Quit();
         }
@@ -48,22 +31,38 @@ public class MainMenu : MonoBehaviour
 
     public void OptionsMenu()
     {
-        showOptions = true;
+        optionsMenu.SetActive(true);
+        creditsMenu.SetActive(false);
+        playButton.SetActive(false);
+        quitButton.SetActive(false);
+        creditsButton.SetActive(false);
     }
 
     public void ExitOptions()
     {
-        showOptions = false;
+        optionsMenu.SetActive(false);
+        playButton.SetActive(true);
+        quitButton.SetActive(true);
+        creditsButton.SetActive(true);
     }
 
     public void CreditsMenu()
     {
-        showCredits = true;
+        creditsMenu.SetActive(true);
+        optionsMenu.SetActive(false);
+        playButton.SetActive(false);
+        quitButton.SetActive(false);
+        optionsButton.SetActive(false);
+        creditsButton.SetActive(false);
     }
 
     public void ExitCredits()
     {
-        showCredits = false;
+        creditsMenu.SetActive(false);
+        playButton.SetActive(true);
+        quitButton.SetActive(true);
+        optionsButton.SetActive(true);
+        creditsButton.SetActive(true);
     }
 
 }
