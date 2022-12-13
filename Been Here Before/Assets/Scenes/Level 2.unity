@@ -1867,6 +1867,10 @@ PrefabInstance:
       value: Exit Door
       objectReference: {fileID: 0}
     - target: {fileID: 5060646325220377766, guid: 0fa06faebec3941cd94a8cc780b7f1ec, type: 3}
+      propertyPath: doorOpen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5060646325220377766, guid: 0fa06faebec3941cd94a8cc780b7f1ec, type: 3}
       propertyPath: sceneToLoad
       value: Level 5
       objectReference: {fileID: 0}
