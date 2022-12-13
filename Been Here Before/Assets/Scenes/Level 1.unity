@@ -737,7 +737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5060646325220377766, guid: 0fa06faebec3941cd94a8cc780b7f1ec, type: 3}
       propertyPath: sceneToLoad
-      value: Scene2
+      value: Level 2
       objectReference: {fileID: 0}
     - target: {fileID: 5060646325220377766, guid: 0fa06faebec3941cd94a8cc780b7f1ec, type: 3}
       propertyPath: functionalDoor

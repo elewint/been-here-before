@@ -16,11 +16,9 @@ public class Drop : MonoBehaviour
     {
         if (beingDropped && other.gameObject.layer == LayerMask.NameToLayer("Pickup"))
         {
-            Debug.Log("dropped");
             
             if (playerCollider)
             {
-                Debug.Log("enable collisions");
                 Physics2D.IgnoreCollision(other, playerCollider, false);
             }
             
