@@ -25,7 +25,6 @@ public class Drop : MonoBehaviour
                 {
                     Physics2D.IgnoreCollision(other, playerCollider, false);
                     ignoredColliders.Remove(other);
-                    Debug.Log("allowing collisions with " + other.name);
                 }
                 
                 beingDropped = false;
