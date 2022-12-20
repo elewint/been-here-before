@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 176279074899076791}
   - component: {fileID: 1714536054522195501}
   - component: {fileID: 7279713728049217342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Colliders_TM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1009,6 +1009,37 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &8389033685925983877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8662644796390606613}
+  m_Layer: 0
+  m_Name: GroundPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8662644796390606613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8389033685925983877}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.2, y: -1.023, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9002954006982772528}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8823640956840222955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,6 +1275,7 @@ GameObject:
   - component: {fileID: 9002954006982772530}
   - component: {fileID: 9002954006982772531}
   - component: {fileID: 9002954006982772533}
+  - component: {fileID: 429844573314605608}
   - component: {fileID: 9002954006982772532}
   - component: {fileID: 7416617178422230149}
   m_Layer: 0
@@ -1268,6 +1300,7 @@ Transform:
   - {fileID: 9002954007654130316}
   - {fileID: 9002954006613480261}
   - {fileID: 9002954006335652995}
+  - {fileID: 8662644796390606613}
   m_Father: {fileID: 7416617176868010859}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1309,7 +1342,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1330,8 +1363,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cbe20b88a4d04fbe9f228af1ad4cf3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  jumpSpeed: 8
+  rb2D: {fileID: 0}
+  startSpeed: 10
+  isAlive: 1
+--- !u!114 &429844573314605608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002954006982772529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a10ddf8cb184f7d9977596ec960cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  jumpForce: 20
+  feet: {fileID: 8662644796390606613}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  canJump: 0
+  isAlive: 1
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 1.5
 --- !u!114 &9002954006982772532
 MonoBehaviour:
   m_ObjectHideFlags: 0

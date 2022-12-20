@@ -3,57 +3,72 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-        public float speed = 6f;        /* player movement speed */
-        public float jumpSpeed = 8f;    /* player jump speed */
-        private Rigidbody2D player;     /* player character */
-        private float direction = 0f;   /* player's direction */
-        private SpriteRenderer sprite;  /* player's sprite */
+        //public Animator animator;
+        public Rigidbody2D rb2D;
+        public static float runSpeed = 10f;
+        public float startSpeed = 10f;
+        public bool isAlive = true;
 
-        /* Start is called before the first frame update */
-        void Start()
-        {
-                if (gameObject.GetComponent<Rigidbody2D>() != null)
-                {
-                        player = GetComponent<Rigidbody2D>();
-                }
-                
-                sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        private bool FaceRight = false; // determine which way player is facing.
+        //public AudioSource WalkSFX;
+        // private Vector3 hMove;
+        private float moveHorizontal;
+
+        void Start(){
+                //animator = gameObject.GetComponentInChildren<Animator>();
+                rb2D = GetComponent<Rigidbody2D>();
         }
 
-        /* Update is called once per frame */
-        void Update()
-        {
-                if (Time.timeScale == 0) return;
+        void Update(){
+                //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
+                // hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
+                if (isAlive == true){
+                        // transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
+                        moveHorizontal = Input.GetAxis("Horizontal");
+                        rb2D.velocity = new Vector2(moveHorizontal * runSpeed, rb2D.velocity.y);
+                        
+                        // Player speeds up
+                        if (moveHorizontal != 0){
+                                if (runSpeed < 13.5f){
+                                        runSpeed = Mathf.Lerp(runSpeed, 13.5f, 0.001f);
+                                }
+                        } else {
+                                runSpeed = startSpeed;
+                        }
 
-                /* Get player's horizontal direction */
-                direction = Input.GetAxisRaw("Horizontal");
+                        if (Input.GetAxis("Horizontal") != 0){
+                        //       animator.SetBool ("Walk", true);
+                        //       if (!WalkSFX.isPlaying){
+                        //             WalkSFX.Play();
+                        //      }
+                        } else {
+                        //      animator.SetBool ("Walk", false);
+                        //      WalkSFX.Stop();
+                        }
 
-                if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
-                {
-                        Cursor.visible = true;
-                } else if (direction != 0)
-                {
-                        Cursor.visible = false;
+                        // Turning: Reverse if input is moving the Player right and Player faces left
+                        if ((moveHorizontal < 0 && !FaceRight) || (moveHorizontal > 0 && FaceRight)){
+                                playerTurn();
+                        }
                 }
 
-                /* Move player left or right or stop */
-                if (direction > 0f)
-                {
-                        sprite.flipX = false;
-                }
-                else if (direction < 0f)
-                {
-                        sprite.flipX = true;
-                }
+        }
 
-                player.velocity = new Vector2(direction * speed, player.velocity.y);
-
-                /* Make player's jump on 'space' */
-                if (Input.GetButtonDown("Jump") && Mathf.Abs(player.velocity.y) < 0.02f)
-                {
-                        player.velocity = new Vector2(player.velocity.x, jumpSpeed);
+        void FixedUpdate(){
+                //slow down on hills / stops sliding from velocity
+                if (moveHorizontal == 0){
+                        rb2D.velocity = new Vector2(rb2D.velocity.x / 1.1f, rb2D.velocity.y) ;
                 }
+        }
 
+        private void playerTurn(){
+                // NOTE: Switch player facing label
+                FaceRight = !FaceRight;
+
+                // NOTE: Multiply player's x local scale by -1.
+                Vector3 theScale = transform.localScale;
+                theScale.x *= -1;
+                transform.localScale = theScale;
         }
 }
 
