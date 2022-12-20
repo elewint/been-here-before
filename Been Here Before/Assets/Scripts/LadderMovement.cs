@@ -13,10 +13,12 @@ public class LadderMovement : MonoBehaviour
         private bool isClimbing;
 
         [SerializeField] private Rigidbody2D rb;
+        private PlayerJump playerJump;
 
 	void Start()
 	{
 		anim = gameObject.GetComponentInChildren<Animator>();
+                playerJump = GetComponent<PlayerJump>();
 	}
 
 
@@ -25,8 +27,10 @@ public class LadderMovement : MonoBehaviour
                 vertical = Input.GetAxis("Vertical");
                 if (isLadder && Mathf.Abs(vertical) > 0f) {
                         isClimbing = true;
+                        playerJump.usingLadder = true;
 			anim.SetBool("UsingLadder", true);
                 } else {
+                        playerJump.usingLadder = false;
 			anim.SetBool("UsingLadder", false);
 		}
         }

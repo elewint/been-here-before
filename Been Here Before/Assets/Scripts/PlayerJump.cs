@@ -14,6 +14,7 @@ public class PlayerJump : MonoBehaviour {
     //public AudioSource JumpSFX;
     public float lowJumpMultiplier = 3f;
     public float fallMultiplier = 3.5f;
+    public bool usingLadder = false;
 
     private float lastJumpTime;
 
@@ -42,7 +43,7 @@ public class PlayerJump : MonoBehaviour {
     public void Jump() {
         // Measure time since we last jumped. If less than 0.2 seconds, we
         // can't jump again :(
-        if (Time.time - lastJumpTime < 0.2f) {
+        if (usingLadder || Time.time - lastJumpTime < 0.2f) {
             return;
         }
         
