@@ -216,7 +216,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1151686413881491876, guid: 0fa06faebec3941cd94a8cc780b7f1ec, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1151686413881491876, guid: 0fa06faebec3941cd94a8cc780b7f1ec, type: 3}
       propertyPath: m_LocalScale.x
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 109122553}
   - component: {fileID: 109122552}
   - component: {fileID: 109122551}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chandelier 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 124387363}
   - component: {fileID: 124387362}
   - component: {fileID: 124387361}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sofa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -863,7 +863,7 @@ GameObject:
   - component: {fileID: 538837606}
   - component: {fileID: 538837605}
   - component: {fileID: 538837604}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Colliders_TM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80669,7 +80669,7 @@ GameObject:
   - component: {fileID: 664744886}
   - component: {fileID: 664744885}
   - component: {fileID: 664744884}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fancy table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80781,7 +80781,7 @@ GameObject:
   - component: {fileID: 759009617}
   - component: {fileID: 759009616}
   - component: {fileID: 759009615}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sofa (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81221,13 +81221,102 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &962325033 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7721346634700038775, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
   m_PrefabInstance: {fileID: 553367617}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1565263709
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 984431749509790195, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_Size.x
+      value: 5.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 984431749509790195, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_Size.y
+      value: 13.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 984431749509790195, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 979256f68c2c7413497d0c5d5193f74c, type: 3}
+    - target: {fileID: 984431749509790195, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338583919565251829, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338583919565251829, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.28606755
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338583919565251829, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8421532
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338583919565251829, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.28606755
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338583919565251829, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 58.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338583919565251829, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338583919565251829, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338583919565251829, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338583919565251829, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 57.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338583919565251835, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_Name
+      value: DemoLadder (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757490164905679021, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_Size.x
+      value: 5.1570253
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757490164905679021, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_Size.y
+      value: 13.851131
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757490164905679021, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757490164905679021, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.047872543
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757490164905679021, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 5.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757490164905679021, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 13.9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
 --- !u!1 &1606817771
 GameObject:
   m_ObjectHideFlags: 0
@@ -81240,7 +81329,7 @@ GameObject:
   - component: {fileID: 1606817774}
   - component: {fileID: 1606817773}
   - component: {fileID: 1606817772}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sofa (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81707,7 +81796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4338583919565251829, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4338583919565251829, guid: c0bd421cb5d514e21923ff98f512b854, type: 3}
       propertyPath: m_LocalScale.x
@@ -81782,7 +81871,7 @@ GameObject:
   - component: {fileID: 1987742339}
   - component: {fileID: 1987742338}
   - component: {fileID: 1987742337}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chandelier 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

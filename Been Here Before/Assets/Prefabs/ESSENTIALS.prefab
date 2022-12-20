@@ -1379,7 +1379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  jumpForce: 20
+  jumpForce: 22
   feet: {fileID: 8662644796390606613}
   groundLayer:
     serializedVersion: 2
@@ -1389,8 +1389,8 @@ MonoBehaviour:
     m_Bits: 8
   canJump: 0
   isAlive: 1
-  fallMultiplier: 2.5
   lowJumpMultiplier: 1.5
+  fallMultiplier: 2.5
 --- !u!114 &9002954006982772532
 MonoBehaviour:
   m_ObjectHideFlags: 0
