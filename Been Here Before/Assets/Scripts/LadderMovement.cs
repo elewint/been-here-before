@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class LadderMovement : MonoBehaviour
 {
-
+	public Animator anim;
         private float vertical;
         private float speed = 5f;
         private bool isLadder;
@@ -14,12 +14,21 @@ public class LadderMovement : MonoBehaviour
 
         [SerializeField] private Rigidbody2D rb;
 
+	void Start()
+	{
+		anim = gameObject.GetComponentInChildren<Animator>();
+	}
+
+
         void Update()
         {
                 vertical = Input.GetAxis("Vertical");
                 if (isLadder && Mathf.Abs(vertical) > 0f) {
                         isClimbing = true;
-                }
+			anim.SetBool("UsingLadder", true);
+                } else {
+			anim.SetBool("UsingLadder", false);
+		}
         }
 
         private void FixedUpdate()
