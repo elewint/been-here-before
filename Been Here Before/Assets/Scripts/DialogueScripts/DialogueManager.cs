@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueText;
 
     public Animator animator;
+    public GameHandler gameHandler;
 
     private Queue<string> sentences;
 
@@ -62,6 +63,7 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         Debug.Log("End of conversation.");
+        gameHandler.endFlashBack();
     }
 
 }

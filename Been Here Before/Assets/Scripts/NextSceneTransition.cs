@@ -10,6 +10,7 @@ public class NextSceneTransition : MonoBehaviour
     public Sprite doorOpenSprite;
     public Sprite doorClosedSprite;
     public bool doorOpen = false;
+    public bool triggerFlashback = false;
     
     private GameHandler gameHandler;
 
@@ -28,8 +29,17 @@ public class NextSceneTransition : MonoBehaviour
 
         if (functionalDoor && doorOpen && collider.name == "Player")
         {
-            gameHandler.colorWorld();
-            StartCoroutine(LoadAfterSeconds(6f));
+            // Door can only be entered once
+            functionalDoor = false;
+
+            // If there's a flashback, wait 5 seconds before triggering it
+            // then wait for user to complete dialogue before loading scene
+            if (triggerFlashback) StartCoroutine(FlashbackAfterSeconds(1f));
+            // Wait 6 seconds before loading scene
+            else {
+                gameHandler.colorWorld();
+                StartCoroutine(LoadAfterSeconds(6f));
+            }
         }
     }
 
@@ -49,6 +59,11 @@ public class NextSceneTransition : MonoBehaviour
         doorOpen = false;
         SetDoorSprite();
     }
+
+    public void LoadAfterFlashback()
+    {
+        LoadScene();
+    }
     
     private void SetDoorSprite()
     {
@@ -61,11 +76,21 @@ public class NextSceneTransition : MonoBehaviour
             door.GetComponent<SpriteRenderer>().sprite = doorClosedSprite;
         }
     }
+    
+    public void PublicLoadAfterSeconds(float time)
+    {
+        StartCoroutine(LoadAfterSeconds(time));
+    }
 
     IEnumerator LoadAfterSeconds(float time)
     {
         yield return new WaitForSecondsRealtime(time);
-        Time.timeScale = 1f;
         LoadScene();
+    }
+
+    IEnumerator FlashbackAfterSeconds(float time)
+    {
+        yield return new WaitForSecondsRealtime(time);
+        gameHandler.FlashBack(gameObject);
     }
 }

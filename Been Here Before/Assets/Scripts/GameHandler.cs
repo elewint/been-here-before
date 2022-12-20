@@ -9,8 +9,13 @@ public class GameHandler : MonoBehaviour
 {
     public PauseMenu pauseMenu;
     public Volume postProcessingVolume; 
-    public CinemachineVirtualCamera cinemachineVirtualCamera;
+    public CinemachineVirtualCamera worldCam;
+    public CinemachineVirtualCamera flashbackCam;
+    public GameObject flashbackObject;
+    public bool inFlashback = false;
     
+    private GameObject sourceDoor;
+
     void Start()
     {
         // Turn on film grain
@@ -37,10 +42,8 @@ public class GameHandler : MonoBehaviour
     
     public void colorWorld()
     {
-        // Pause player movement for 3 seconds and slowly zoom out main camera
-        // Time.timeScale = 0f;
         // Set priority of cinemachine virtual camera to 20
-        cinemachineVirtualCamera.Priority = 20;
+        worldCam.Priority = 20;
         
         // Turn up the saturation to 0
         postProcessingVolume.profile.TryGet(out ColorAdjustments colorAdjustments);
@@ -49,5 +52,40 @@ public class GameHandler : MonoBehaviour
         // Disable chromatic aberration
         postProcessingVolume.profile.TryGet(out ChromaticAberration chromaticAberration);
         chromaticAberration.active = false;
+    }
+    
+    public void FlashBack(GameObject source)
+    {
+        inFlashback = true;
+        sourceDoor = source;
+        // Set priority of cinemachine virtual camera to 20
+        flashbackCam.Priority = 30;
+        
+        if (flashbackObject)
+        {
+            flashbackObject.SetActive(true);
+            // Start dialogue after 1 second delay
+            StartCoroutine(StartDialogueAfterSeconds(2f));
+        }
+    }
+    
+    public void endFlashBack()
+    {
+        if (!inFlashback) return;
+
+        // Set priority of cinemachine virtual camera to 20
+        flashbackCam.Priority = 10;
+        colorWorld();
+
+        sourceDoor.GetComponent<NextSceneTransition>().PublicLoadAfterSeconds(6f);
+        
+        flashbackObject.SetActive(false);
+        inFlashback = false;
+    }
+
+    private IEnumerator StartDialogueAfterSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        flashbackObject.GetComponent<DialogueTrigger>().TriggerDialogue();
     }
 }
