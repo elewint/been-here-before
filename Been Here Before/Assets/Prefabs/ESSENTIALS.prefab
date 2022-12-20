@@ -1680,6 +1680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a10ddf8cb184f7d9977596ec960cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 6370986745990914918}
   rb: {fileID: 0}
   jumpForce: 22
   feet: {fileID: 8662644796390606613}
@@ -1718,6 +1719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83116444c268d47458904bf74e0b545b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 6370986745990914918}
   rb: {fileID: 9002954006982772531}
 --- !u!1 &9002954007654130317
 GameObject:
