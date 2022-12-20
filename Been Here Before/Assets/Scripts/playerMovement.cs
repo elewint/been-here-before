@@ -1,22 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour {
+public class playerMovement : MonoBehaviour {
         //public Animator animator;
         public Rigidbody2D rb2D;
         public static float runSpeed = 10f;
         public float startSpeed = 10f;
         public bool isAlive = true;
+       
+        public Collider2D DeathCollider;
 
         private bool FaceRight = false; // determine which way player is facing.
         //public AudioSource WalkSFX;
         // private Vector3 hMove;
         private float moveHorizontal;
 
-        void Start(){
+        //level 5 death
+        //public Collider2D deathCollider;
+        //private bool deathColliderActive = true;
+
+        public void Start(){
                 //animator = gameObject.GetComponentInChildren<Animator>();
                 rb2D = GetComponent<Rigidbody2D>();
+
+                DeathCollider = GetComponent<Collider2D>();
+                
         }
 
         void Update(){
@@ -54,6 +65,15 @@ public class PlayerMovement : MonoBehaviour {
 
         }
 
+            public void OnTriggerEnter2D(Collider2D dc) {
+                //if (dc.GameObject.tag == "Die") {
+                     SceneManager.LoadScene(5);
+                }
+                   
+                //}     
+
+        
+
         void FixedUpdate(){
                 //slow down on hills / stops sliding from velocity
                 if (moveHorizontal == 0){
@@ -70,5 +90,6 @@ public class PlayerMovement : MonoBehaviour {
                 theScale.x *= -1;
                 transform.localScale = theScale;
         }
+        
 }
 

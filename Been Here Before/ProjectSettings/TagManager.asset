@@ -9,6 +9,7 @@ TagManager:
   - painting1
   - painting2
   - Teleporter
+  - Die
   layers:
   - Default
   - TransparentFX
