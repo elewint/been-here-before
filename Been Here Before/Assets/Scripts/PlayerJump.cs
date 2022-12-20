@@ -9,9 +9,9 @@ public class PlayerJump : MonoBehaviour {
     public Transform feet;
     public LayerMask groundLayer;
     public LayerMask enemyLayer;
-    // public bool canJump = false;
+    public bool canJump = false;
     public bool isAlive = true;
-    //public AudioSource JumpSFX;
+    public AudioSource JumpSFX;
     public float lowJumpMultiplier = 3f;
     public float fallMultiplier = 3.5f;
     public bool usingLadder = false;
@@ -48,10 +48,10 @@ public class PlayerJump : MonoBehaviour {
         }
         
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        Debug.Log("jumping!");
-        anim.SetTrigger("Jump");
+        // Debug.Log("jumping!");
+        // anim.SetTrigger("Jump");
         lastJumpTime = Time.time;
-        // JumpSFX.Play();
+        JumpSFX.Play();
 
         //Vector2 movement = new Vector2(rb.velocity.x, jumpForce);
         //rb.velocity = movement;
