@@ -31,6 +31,7 @@ public class MainMenu : MonoBehaviour
 
     public void OptionsMenu()
     {
+        optionsButton.SetActive(false);
         optionsMenu.SetActive(true);
         creditsMenu.SetActive(false);
         playButton.SetActive(false);
@@ -40,6 +41,7 @@ public class MainMenu : MonoBehaviour
 
     public void ExitOptions()
     {
+        optionsButton.SetActive(true);
         optionsMenu.SetActive(false);
         playButton.SetActive(true);
         quitButton.SetActive(true);
