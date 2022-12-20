@@ -11,8 +11,6 @@ public class playerMovement : MonoBehaviour {
         public float startSpeed = 10f;
         public bool isAlive = true;
        
-        public Collider2D DeathCollider;
-
         private bool FaceRight = false; // determine which way player is facing.
         //public AudioSource WalkSFX;
         // private Vector3 hMove;
@@ -25,9 +23,6 @@ public class playerMovement : MonoBehaviour {
         public void Start(){
                 //animator = gameObject.GetComponentInChildren<Animator>();
                 rb2D = GetComponent<Rigidbody2D>();
-
-                DeathCollider = GetComponent<Collider2D>();
-                
         }
 
         void Update(){
@@ -65,12 +60,11 @@ public class playerMovement : MonoBehaviour {
 
         }
 
-            public void OnTriggerEnter2D(Collider2D dc) {
-                //if (dc.GameObject.tag == "Die") {
+        public void OnTriggerEnter2D(Collider2D dc) {
+                if (dc.gameObject.tag == "Die") {
                      SceneManager.LoadScene(5);
                 }
-                   
-                //}     
+        }     
 
         
 
