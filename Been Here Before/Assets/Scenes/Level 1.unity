@@ -123,6 +123,45 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &124298581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9002954007654130317, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+  m_PrefabInstance: {fileID: 1574752543}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &124298584
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124298581}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aa5dcd7892823ca4fb524d46bc9acf8f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &124298585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124298581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library: []
+  m_SpriteLibraryAsset: {fileID: 0}
 --- !u!1 &316111661 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1151686413881491878, guid: 0fa06faebec3941cd94a8cc780b7f1ec, type: 3}
@@ -589,21 +628,9 @@ CompositeCollider2D:
         Y: 180000000
       - X: 310000000
         Y: 110000000
-      - X: -129999900
+      - X: -130000000
         Y: 110000000
-      - X: -129999900
-        Y: 99999959
-      - X: -129999959
-        Y: 99999900
-      - X: -130000100
-        Y: 99999900
-      - X: -130000100
-        Y: -9999900
-      - X: -129999959
-        Y: -9999900
-      - X: -129999900
-        Y: -9999959
-      - X: -129999900
+      - X: -130000000
         Y: -20000000
       - X: 350000000
         Y: -20000000
@@ -623,21 +650,17 @@ CompositeCollider2D:
         Y: -50000000
       - X: 360000000
         Y: -10000000
-      - X: -119999900
+      - X: -120000000
         Y: -10000000
-      - X: -119999900
-        Y: 39999900
-      - X: -49999959
-        Y: 39999900
-      - X: -49999900
-        Y: 39999959
-      - X: -49999900
-        Y: 50000041
-      - X: -49999959
-        Y: 50000100
-      - X: -119999900
-        Y: 50000100
-      - X: -119999900
+      - X: -120000000
+        Y: 40000000
+      - X: -50000000
+        Y: 40000000
+      - X: -50000000
+        Y: 50000000
+      - X: -120000000
+        Y: 50000000
+      - X: -120000000
         Y: 100000000
       - X: 320000000
         Y: 100000000
@@ -705,8 +728,8 @@ CompositeCollider2D:
       - {x: 48.999973, y: 18}
       - {x: 31, y: 17.999971}
       - {x: 30.999971, y: 11}
-      - {x: -12.99999, y: 10.99997}
-      - {x: -12.999961, y: -2}
+      - {x: -13, y: 10.99997}
+      - {x: -12.99997, y: -2}
       - {x: 35, y: -2.0000293}
       - {x: 35.00003, y: -11}
     - - {x: 56, y: -9.99997}
@@ -716,12 +739,12 @@ CompositeCollider2D:
       - {x: 38.999973, y: -5}
       - {x: 36, y: -4.9999704}
       - {x: 35.999973, y: -1}
-      - {x: -11.99999, y: -0.9999706}
-      - {x: -11.999961, y: 3.99999}
-      - {x: -4.99999, y: 4.0000253}
-      - {x: -5.0000253, y: 5.00001}
-      - {x: -11.99999, y: 5.000039}
-      - {x: -11.999961, y: 10}
+      - {x: -12, y: -0.9999706}
+      - {x: -11.99997, y: 4}
+      - {x: -5, y: 4.000029}
+      - {x: -5.000029, y: 5}
+      - {x: -12, y: 5.0000296}
+      - {x: -11.99997, y: 10}
       - {x: 32, y: 10.00003}
       - {x: 32.00003, y: 17}
       - {x: 48, y: 16.999971}
@@ -22128,6 +22151,34 @@ PrefabInstance:
       propertyPath: unsuccessfulMessage
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9002954007654130316, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4149086
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002954007654130316, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4149086
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002954007654130316, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4149086
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002954007654130316, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.152
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002954007654130316, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.109
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002954007654130316, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002954007654130319, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 601081424, guid: 8d779f66653588f4eaed3bf1bb0ab4a5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
 --- !u!1001 &1629785363
@@ -22516,3 +22567,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2135897402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9002954006982772529, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
+  m_PrefabInstance: {fileID: 1574752543}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2135897409
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135897402}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 86cc55364f526e94599d9c35e08e947e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
