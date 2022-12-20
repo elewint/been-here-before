@@ -87,6 +87,7 @@ public class Pickup : MonoBehaviour
         else
         {
             Physics2D.IgnoreCollision(itemHolding.GetComponent<Collider2D>(), playerCollider, true);
+            Debug.Log("ignoring colision with " + itemHolding.name);
 
             // Re-enable collider and rigidbody collisions w other objects
             itemHolding.GetComponent<Collider2D>().isTrigger = false;
@@ -95,6 +96,7 @@ public class Pickup : MonoBehaviour
             if (holdSpot.GetComponent<Drop>())
             {
                 holdSpot.GetComponent<Drop>().beingDropped = true;
+                holdSpot.GetComponent<Drop>().ignoredColliders.Add(itemHolding.GetComponent<Collider2D>());
             }
 
         }

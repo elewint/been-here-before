@@ -10,6 +10,8 @@ public class NextSceneTransition : MonoBehaviour
     public Sprite doorOpenSprite;
     public Sprite doorClosedSprite;
     public bool doorOpen = false;
+    
+    private GameHandler gameHandler;
 
     private GameObject door;
     
@@ -17,6 +19,7 @@ public class NextSceneTransition : MonoBehaviour
     {
         door = transform.GetChild(0).gameObject;
         SetDoorSprite();
+        gameHandler = GameObject.Find("GameHandler").GetComponent<GameHandler>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,7 +28,8 @@ public class NextSceneTransition : MonoBehaviour
 
         if (functionalDoor && doorOpen && collider.name == "Player")
         {
-            LoadScene();
+            gameHandler.colorWorld();
+            StartCoroutine(LoadAfterSeconds(6f));
         }
     }
 
@@ -56,5 +60,12 @@ public class NextSceneTransition : MonoBehaviour
         {
             door.GetComponent<SpriteRenderer>().sprite = doorClosedSprite;
         }
+    }
+
+    IEnumerator LoadAfterSeconds(float time)
+    {
+        yield return new WaitForSecondsRealtime(time);
+        Time.timeScale = 1f;
+        LoadScene();
     }
 }
