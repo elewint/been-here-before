@@ -50,6 +50,10 @@ MonoBehaviour:
   flashbackCam: {fileID: 1493142817457967299}
   flashbackObject: {fileID: 0}
   inFlashback: 0
+  finalFlashback: 0
+  finalDialogueSentence: 0
+  finalDialogueObject: {fileID: 0}
+  lever: {fileID: 0}
 --- !u!1 &1285742621993660139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,10 +1914,10 @@ AudioSource:
   m_GameObject: {fileID: 9002954006982772529}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: ea9e59462cfecdf4cb656cf6a7d095c9, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7edaa7d6c015546d99c8c3a48b5977b7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.77
   m_Pitch: 1
   Loop: 0
   Mute: 0

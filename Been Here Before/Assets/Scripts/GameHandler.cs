@@ -69,7 +69,7 @@ public class GameHandler : MonoBehaviour
         if (flashbackObject)
         {
             flashbackObject.SetActive(true);
-            lever.SetActive(false);
+            if (lever) lever.SetActive(false);
             // Start dialogue after 1 second delay
             StartCoroutine(StartDialogueAfterSeconds(2f));
         }
