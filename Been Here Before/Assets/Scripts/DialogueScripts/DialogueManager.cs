@@ -62,8 +62,12 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
-        Debug.Log("End of conversation.");
-        gameHandler.endFlashBack();
+
+        if (gameHandler.finalDialogueSentence) {
+            gameHandler.endFinalFlashback();
+        } else {
+            gameHandler.endFlashBack();
+        }
     }
 
 }

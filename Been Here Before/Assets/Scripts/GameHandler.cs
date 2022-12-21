@@ -13,6 +13,10 @@ public class GameHandler : MonoBehaviour
     public CinemachineVirtualCamera flashbackCam;
     public GameObject flashbackObject;
     public bool inFlashback = false;
+    public bool finalFlashback = false;
+    public bool finalDialogueSentence = false;
+    public GameObject finalDialogueObject;
+    public GameObject lever;
     
     private GameObject sourceDoor;
 
@@ -24,7 +28,8 @@ public class GameHandler : MonoBehaviour
 
         // Set saturation to -100
         postProcessingVolume.profile.TryGet(out ColorAdjustments colorAdjustments);
-        colorAdjustments.saturation.value = -50f;
+        colorAdjustments.saturation.value = -75f;
+        colorAdjustments.postExposure.value = 0f;
         
         // Enable chromatic aberration
         postProcessingVolume.profile.TryGet(out ChromaticAberration chromaticAberration);
@@ -64,6 +69,7 @@ public class GameHandler : MonoBehaviour
         if (flashbackObject)
         {
             flashbackObject.SetActive(true);
+            if (lever) lever.SetActive(false);
             // Start dialogue after 1 second delay
             StartCoroutine(StartDialogueAfterSeconds(2f));
         }
@@ -72,6 +78,11 @@ public class GameHandler : MonoBehaviour
     public void endFlashBack()
     {
         if (!inFlashback) return;
+        if (finalFlashback) 
+        {
+            FinalFlashback();
+            return;
+        }
 
         // Set priority of cinemachine virtual camera to 20
         flashbackCam.Priority = 10;
@@ -82,10 +93,35 @@ public class GameHandler : MonoBehaviour
         flashbackObject.SetActive(false);
         inFlashback = false;
     }
+    
+    private void FinalFlashback()
+    {
+        // Flash white by setting post exposure to 100
+        postProcessingVolume.profile.TryGet(out ColorAdjustments colorAdjustments);
+        colorAdjustments.postExposure.value = 1000f;
+
+        flashbackObject.SetActive(false);
+
+        finalDialogueSentence = true;
+        StartCoroutine(StartDialogueAfterSeconds(3f));
+    }
+
+    public void endFinalFlashback()
+    {
+        sourceDoor.GetComponent<NextSceneTransition>().PublicLoadAfterSeconds(0.5f);
+        
+        inFlashback = false;
+    }
 
     private IEnumerator StartDialogueAfterSeconds(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        flashbackObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+        
+        if (finalDialogueSentence) {
+            finalDialogueObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+            yield break;
+        } else {
+            flashbackObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+        }
     }
 }
