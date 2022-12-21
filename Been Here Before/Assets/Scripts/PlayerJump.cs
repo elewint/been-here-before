@@ -49,7 +49,7 @@ public class PlayerJump : MonoBehaviour {
         
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         // Debug.Log("jumping!");
-        // anim.SetTrigger("Jump");
+        anim.SetTrigger("Jump");
         lastJumpTime = Time.time;
         JumpSFX.Play();
 

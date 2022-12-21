@@ -17,6 +17,8 @@ public class GameHandler : MonoBehaviour
     public bool finalDialogueSentence = false;
     public GameObject finalDialogueObject;
     public GameObject lever;
+    public GameObject leverUnpulled;
+    public GameObject leverPulled;
     
     private GameObject sourceDoor;
 
@@ -80,7 +82,7 @@ public class GameHandler : MonoBehaviour
         if (!inFlashback) return;
         if (finalFlashback) 
         {
-            FinalFlashback();
+            StartCoroutine(FinalFlashAfterDelay(2f));
             return;
         }
 
@@ -123,5 +125,14 @@ public class GameHandler : MonoBehaviour
         } else {
             flashbackObject.GetComponent<DialogueTrigger>().TriggerDialogue();
         }
+    }
+
+    private IEnumerator FinalFlashAfterDelay(float seconds)
+    {
+        leverUnpulled.SetActive(false);
+        leverPulled.SetActive(true);
+
+        yield return new WaitForSeconds(seconds);
+        FinalFlashback();
     }
 }

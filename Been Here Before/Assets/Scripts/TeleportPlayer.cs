@@ -9,7 +9,7 @@ public class TeleportPlayer : MonoBehaviour
 
         void Update()
         {
-                if(Input.GetKeyDown(KeyCode.E)) {
+                if(Input.GetButtonDown("Pickup")) {
                         if(currentTeleporter != null) {
                                 transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
                         }
