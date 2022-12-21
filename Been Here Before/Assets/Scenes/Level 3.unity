@@ -315,7 +315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5060646325220377766, guid: 0fa06faebec3941cd94a8cc780b7f1ec, type: 3}
       propertyPath: sceneToLoad
-      value: Level 5
+      value: Level 4
       objectReference: {fileID: 0}
     - target: {fileID: 5060646325220377766, guid: 0fa06faebec3941cd94a8cc780b7f1ec, type: 3}
       propertyPath: functionalDoor
@@ -5962,7 +5962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4198794293848639892, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
       propertyPath: orthographic size
-      value: 3.6484375
+      value: 4.2578125
       objectReference: {fileID: 0}
     - target: {fileID: 4395318737359417223, guid: 4a212a463b24042c9bba67218b8fbc05, type: 3}
       propertyPath: m_LocalPosition.x
