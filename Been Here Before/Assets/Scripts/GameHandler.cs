@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class GameHandler : MonoBehaviour
 {
@@ -31,7 +32,10 @@ public class GameHandler : MonoBehaviour
         // Set saturation to -100
         postProcessingVolume.profile.TryGet(out ColorAdjustments colorAdjustments);
         colorAdjustments.saturation.value = -75f;
-        colorAdjustments.postExposure.value = 0f;
+        
+        // Set vignette intensity to 0
+        postProcessingVolume.profile.TryGet(out Vignette vignette);
+        vignette.intensity.value = 0f;
         
         // Enable chromatic aberration
         postProcessingVolume.profile.TryGet(out ChromaticAberration chromaticAberration);
@@ -68,6 +72,18 @@ public class GameHandler : MonoBehaviour
         // Set priority of cinemachine virtual camera to 20
         flashbackCam.Priority = 30;
         
+        // Bring the vignette intensity up to 0.5 over 2 seconds
+        StartCoroutine(FlashbackVignetteFromTo(0f, 0.5f, 2f));
+        
+        // Fade the player's alpha over 2 seconds
+        StartCoroutine(FlashbackFadeAlphaFromTo(1f, 0f, 2f));
+
+        // Disable player movement and jump
+        GameObject player = GameObject.Find("Player");
+        player.GetComponent<playerMovement>().isAlive = false;
+        player.GetComponent<PlayerJump>().isAlive = false;
+        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        
         if (flashbackObject)
         {
             flashbackObject.SetActive(true);
@@ -82,7 +98,7 @@ public class GameHandler : MonoBehaviour
         if (!inFlashback) return;
         if (finalFlashback) 
         {
-            StartCoroutine(FinalFlashAfterDelay(2f));
+            StartCoroutine(FinalFlashAfterDelay(3.5f));
             return;
         }
 
@@ -99,9 +115,11 @@ public class GameHandler : MonoBehaviour
     private void FinalFlashback()
     {
         // Flash white by setting post exposure to 100
-        postProcessingVolume.profile.TryGet(out ColorAdjustments colorAdjustments);
-        colorAdjustments.postExposure.value = 1000f;
+        GameObject whiteFlash = GameObject.Find("WhiteFlash");
+        // Set alpha of white flash image to 100
+        whiteFlash.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
 
+        // Disable first lines of dialogue
         flashbackObject.SetActive(false);
 
         finalDialogueSentence = true;
@@ -131,8 +149,38 @@ public class GameHandler : MonoBehaviour
     {
         leverUnpulled.SetActive(false);
         leverPulled.SetActive(true);
+        
+        // Play machine activating sound effect
+        finalDialogueObject.GetComponent<AudioSource>().Play();
 
         yield return new WaitForSeconds(seconds);
         FinalFlashback();
+    }
+
+    private IEnumerator FlashbackVignetteFromTo(float from, float to, float time)
+    {
+        postProcessingVolume.profile.TryGet(out Vignette vignette);
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / time;
+            vignette.intensity.value = Mathf.Lerp(from, to, t);
+            yield return null;
+        }
+    }
+
+    private IEnumerator FlashbackFadeAlphaFromTo(float from, float to, float time)
+    {
+        GameObject player = GameObject.Find("player_art");
+        SpriteRenderer playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
+        Color playerColor = playerSpriteRenderer.color;
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / time;
+            playerColor.a = Mathf.Lerp(from, to, t);
+            playerSpriteRenderer.color = playerColor;
+            yield return null;
+        }
     }
 }

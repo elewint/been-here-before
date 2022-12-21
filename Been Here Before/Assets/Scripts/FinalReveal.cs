@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class FinalReveal : MonoBehaviour
 {
@@ -10,20 +10,20 @@ public class FinalReveal : MonoBehaviour
     public GameObject world;
     public GameObject player;
     private playerMovement playerMovement;
-    private TilemapRenderer[] tilemapRenderers;
+    private SpriteRenderer blackScreen;
     
     void Awake()
     {
-        playerMovement = GameObject.Find("Player").GetComponent<playerMovement>();
-        // Get TilemapRenderers from children of world
-        tilemapRenderers = world.GetComponentsInChildren<TilemapRenderer>();
         player = GameObject.Find("Player");
+        playerMovement = player.GetComponent<playerMovement>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player")) {
             playerMovement.isAlive = false;
+            player.GetComponent<PlayerJump>().isAlive = false;
+
             ShowFaces();
         }
     }
@@ -36,17 +36,31 @@ public class FinalReveal : MonoBehaviour
         // Disable player velocity
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.GetComponent<Rigidbody2D>().gravityScale = 0f;
-        // Turn off the tilemap renderers
-        foreach (var tilemapRenderer in tilemapRenderers) {
-            tilemapRenderer.enabled = false;
-        }
+        
+        // Fade alpha of black screen from 0 to 1 over 2 seconds
+        GameObject blackScreenObject = GameObject.Find("BlackScreen");
+        if (blackScreenObject) blackScreen = blackScreenObject.GetComponent<SpriteRenderer>();
 
-        StartCoroutine(ShowSecondFaceAfterSeconds(1.5f));
+        if (blackScreen) StartCoroutine(FadeBlackScreenIn(0f, 1f, 2f));
+
+        StartCoroutine(ShowSecondFaceAfterSeconds(3.5f));
     }
 
     IEnumerator ShowSecondFaceAfterSeconds(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         face2.SetActive(true);
+    }
+
+    IEnumerator FadeBlackScreenIn(float start, float end, float time)
+    {
+        float i = 0.0f;
+        float rate = 1.0f / time;
+        while (i < 1.0f)
+        {
+            i += Time.deltaTime * rate;
+            blackScreen.color = new Color(0f, 0f, 0f, Mathf.Lerp(start, end, i));
+            yield return null;
+        }
     }
 }
