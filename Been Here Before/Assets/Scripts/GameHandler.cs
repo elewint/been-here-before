@@ -28,7 +28,7 @@ public class GameHandler : MonoBehaviour
 
         // Set saturation to -100
         postProcessingVolume.profile.TryGet(out ColorAdjustments colorAdjustments);
-        colorAdjustments.saturation.value = -50f;
+        colorAdjustments.saturation.value = -75f;
         colorAdjustments.postExposure.value = 0f;
         
         // Enable chromatic aberration
