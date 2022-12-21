@@ -37,7 +37,7 @@ public class LevelChecker : MonoBehaviour
 
                 if (painting.gameObject.tag != slot.tag)
                 {
-                    Debug.Log("Incorrect placement");
+                    // Debug.Log("Incorrect placement");
                     return;
                 }
             }
@@ -58,7 +58,7 @@ public class LevelChecker : MonoBehaviour
     
     void LevelComplete()
     {
-        Debug.Log("Level Complete!");
+        // Debug.Log("Level Complete!");
 
         foreach (GameObject door in doorsToOpen)
         {

@@ -56,9 +56,8 @@ public class GameHandler : MonoBehaviour
         // Set priority of cinemachine virtual camera to 20
         worldCam.Priority = 20;
         
-        // Turn up the saturation to 0
-        postProcessingVolume.profile.TryGet(out ColorAdjustments colorAdjustments);
-        colorAdjustments.saturation.value = 0f;
+        // Turn up the saturation to 0 over 1 second using a coroutine
+        StartCoroutine(SaturationFromTo(-75f, 0f, 1f));
         
         // Disable chromatic aberration
         postProcessingVolume.profile.TryGet(out ChromaticAberration chromaticAberration);
@@ -106,9 +105,23 @@ public class GameHandler : MonoBehaviour
         flashbackCam.Priority = 10;
         colorWorld();
 
-        sourceDoor.GetComponent<NextSceneTransition>().PublicLoadAfterSeconds(6f);
+        sourceDoor.GetComponent<NextSceneTransition>().PublicLoadAfterSeconds(6.5f);
         
         flashbackObject.SetActive(false);
+        
+        if (!finalFlashback)
+        {
+            // Make the player visible again and re-enable movement and jump
+            GameObject player = GameObject.Find("Player");
+            GameObject player_art = GameObject.Find("player_art");
+            player_art.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            player.GetComponent<playerMovement>().isAlive = true;
+            player.GetComponent<PlayerJump>().isAlive = true;
+
+            // Fade vignette away
+            StartCoroutine(FlashbackVignetteFromTo(0.5f, 0f, 2f));
+        }
+
         inFlashback = false;
     }
     
@@ -131,6 +144,18 @@ public class GameHandler : MonoBehaviour
         sourceDoor.GetComponent<NextSceneTransition>().PublicLoadAfterSeconds(0.5f);
         
         inFlashback = false;
+    }
+
+    private IEnumerator SaturationFromTo(float from, float to, float time)
+    {
+        postProcessingVolume.profile.TryGet(out ColorAdjustments colorAdjustments);
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / time;
+            colorAdjustments.saturation.value = Mathf.Lerp(from, to, t);
+            yield return null;
+        }
     }
 
     private IEnumerator StartDialogueAfterSeconds(float seconds)
